@@ -1,0 +1,10 @@
+This is the initial state of the code operating the Astronomy Club weather balloon.
+Please list any changes to be implemented / problems to be solved below:
+E-mail any further questions to <nickhudspeth@gmail.com>
+
+
+
+Openlog code needs work, the appendFile function will not append files.
+Orientation control needs testing.
+
+
