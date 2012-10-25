@@ -59,9 +59,9 @@ void appendFile(char *logData, char *editFile, int timestamp, int newline){
   
   char buff[200];
   
-  gps.get_datetime(&date, &time, &fix_age); //Refresh current date and time 
-  gps.crack_datetime(&year, &month, &day,
-  &hour, &minutes, &second, &hundredths, &fix_age);
+  //gps.get_datetime(&date, &time, &fix_age); //Refresh current date and time 
+  //gps.crack_datetime(&year, &month, &day,
+  //&hour, &minutes, &second, &hundredths, &fix_age);
 
   Serial3.write(26); // sending ASCII character ctrl+z three times to datalogger puts it into command mode so that new files may be created.
   Serial3.write(26); 
