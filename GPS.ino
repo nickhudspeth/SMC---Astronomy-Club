@@ -12,13 +12,15 @@ static void print_str(const char *str, int len); //MAY NEED TO REDECLARE CHAR AS
 
 //GPS
 void gpsInit(){
+  Serial.println("Initializing GPS");
   
   gpsRefresh();
   
-  while(gps.satellites() == TinyGPS::GPS_INVALID_SATELLITES)
-  {
-    digitalWrite(gps_no_fix_indicator, HIGH); //Turn on indicator while acquiring GPS fix
-  }
+  Serial.println("Acquiring GPS fix.");
+//  while(gps.satellites() == TinyGPS::GPS_INVALID_SATELLITES)
+//  {
+//    digitalWrite(gps_no_fix_indicator, HIGH); //Turn on indicator while acquiring GPS fix
+//  }
   
   digitalWrite(gps_no_fix_indicator, LOW);
   HOME_LAT = flat;
@@ -39,8 +41,7 @@ void gpsRefresh(){
       newdata = true;
    }
    
-   gpsdump(gps);
-  
+   gpsdump(gps); 
    gps.get_datetime(&date, &time, &fix_age);
    gps.crack_datetime(&year, &month, &day,&hour, &minutes, &second, &hundredths, &fix_age);
    gps.get_position(&lat, &lon, NULL);
@@ -60,10 +61,6 @@ void gpsRefresh(){
    }
 }
 
-
-
-
-
 //void loop()
 //{
 //  bool newdata = false;
@@ -81,8 +78,7 @@ void gpsRefresh(){
 
 static void gpsdump(TinyGPS &gps)
 {
-  
-  
+
   print_int(gps.satellites(), TinyGPS::GPS_INVALID_SATELLITES, 5);
   print_int(gps.hdop(), TinyGPS::GPS_INVALID_HDOP, 5);
   gps.f_get_position(&flat, &flon, &fix_age);

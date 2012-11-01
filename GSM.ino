@@ -12,8 +12,6 @@ void gsmInit(){
     }
   }
 
-
-
 void gsm_send_message(char* message)
 {
   char buffer[600];
@@ -46,9 +44,6 @@ void gsm_send_message(char* message)
 //    
 //  }
 //}
-  
-  
-
 
 void gsm_send_param(int param)
 {
